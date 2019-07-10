@@ -9,6 +9,8 @@ import android.os.CancellationSignal;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import static android.util.Log.d;
+
 
 /**
  * Created by gaoyang on 2018/06/19.
@@ -87,6 +89,7 @@ public class BiometricPromptManager {
     public boolean isHardwareDetected() {
         if (isAboveApi28()) {
             //TODO 这是Api23的判断方法，也许以后有针对Api28的判断方法
+            Log.d("degub","检测不到指纹硬件");
             final FingerprintManager fm = mActivity.getSystemService(FingerprintManager.class);
             return fm != null && fm.isHardwareDetected();
         } else if (isAboveApi23()) {
